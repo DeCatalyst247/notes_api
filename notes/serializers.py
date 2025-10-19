@@ -8,5 +8,5 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
 
-        fields = ['id','owner','title','content','created_at', 'owner','updated_at']
+        fields = ['id','owner','title','content','created_at', 'owner','updated_at','file']
         read_only_fields =['created_at','updated_at','owner']

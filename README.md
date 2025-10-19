@@ -1,8 +1,8 @@
 # PROJECT_TITLE: 📝 NOTE API
 
-This is a simple API I built with Django REST Framework (DRF) for managing personal notes.  
-Each user can sign up, log in, and manage their own notes (create, read, update, and delete).  
-It also keeps track of when each note was created and updated automatically.
+This is a simple API Project I built with Django REST Framework (DRF) for managing personal notes.  
+Each user can sign up, log in,logout and manage their own notes (create, read, update, and delete).  
+It also keeps track of notes when each note was created and updated automatically.
 
 ---
 

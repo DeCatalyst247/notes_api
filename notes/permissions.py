@@ -14,4 +14,4 @@ class IsOwnerOrReadOnly(BasePermission):
             return True
         
         # Only allow edits/deletes for the owner
-        return getattr(obj, 'owner', None) == request.user
+        return obj.owner== request.user
