@@ -32,7 +32,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     # DRF Browsable API docs (optional but nice)
-    path('api/docs/', include_docs_urls(title='Notes API')),
+   # path('api/docs/', include_docs_urls(title='Notes API')),
 ]
 
 if settings.DEBUG:
