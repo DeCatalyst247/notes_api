@@ -21,7 +21,15 @@ from rest_framework.documentation import include_docs_urls
 from accounts.views import RegisterView
 from django.conf.urls.static import static
 from django.conf import settings
+from django.http import JsonResponse
 
+def home(request):
+    return JsonResponse({"message": "Welcome to the Notes API!"})
+
+urlpatterns = [
+    path('', home),  # add this line
+    path('api/', include('notes.urls')),  # example of your app urls
+]
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('notes.urls')),
