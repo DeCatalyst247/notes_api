@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
+from django.contrib.auth import authenticate
 
 # ✅ User Registration View
 class RegisterView(generics.CreateAPIView):
@@ -22,6 +23,26 @@ class RegisterView(generics.CreateAPIView):
 
         user = User.objects.create_user(username=username, password=password)
         return Response({"message": f"User {user.username} created successfully!"}, status=201)
+# ✅ User Login View (JWT)
+class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        username = request.data.get("username")
+        password = request.data.get("password")
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                "access": str(refresh.access_token),
+                "refresh": str(refresh),
+                "username": user.username,
+                "message": "Login successful!"
+            }, status=200)
+        else:
+            return Response({"error": "Invalid username or password."}, status=401)
 
 
 # ✅ Logout View (Blacklist Refresh Token)

@@ -29,8 +29,6 @@ def home(request):
 urlpatterns = [
     path('', home),  # add this line
     path('api/', include('notes.urls')),  # example of your app urls
-]
-urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('notes.urls')),
     path('api_auth/', include('rest_framework.urls')),
