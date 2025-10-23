@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = config('SECRET_KEY', default='unsafe-secret-key')
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS =['*']
+ALLOWED_HOSTS = ['notes-api-7.onrender.com', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
